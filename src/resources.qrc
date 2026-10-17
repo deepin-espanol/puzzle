@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/puzzle.svg</file>
+        <file>icons/Logo-Racoon.png</file>
+    </qresource>
+</RCC>
