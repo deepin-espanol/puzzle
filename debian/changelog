@@ -1,3 +1,18 @@
+puzzle (0.2-1) unstable; urgency=medium
+
+  * Clic en cualquier ficha de la fila o columna del hueco desliza toda
+    la linea (antes solo se movia la ficha contigua).
+  * Control con flechas o WASD; el teclado funciona desde el inicio.
+  * Cronometro (arranca con el primer movimiento) y record de
+    movimientos por tamano.
+  * Nuevo tamano 5x5; el menu de tamanos dejaba marcadas dos opciones a
+    la vez (ahora es un grupo exclusivo) y el tamano elegido se
+    recuerda.
+  * El barajado ya no puede dejar el puzzle resuelto.
+  * Ctrl+N y Ctrl+Q funcionan sin abrir el menu.
+
+ -- Deepin en Español <developers@deepinenespanol.org>  Wed, 04 Nov 2026 18:00:00 +0000
+
 puzzle (0.1-1) unstable; urgency=medium
 
   * Initial release.

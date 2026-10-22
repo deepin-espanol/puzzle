@@ -4,6 +4,7 @@
 #include <QMouseEvent>
 #include <QRandomGenerator>
 #include <QFont>
+#include <QKeyEvent>
 
 PuzzleWidget::PuzzleWidget(QWidget *parent)
     : QWidget(parent)
@@ -14,6 +15,12 @@ PuzzleWidget::PuzzleWidget(QWidget *parent)
 {
     setFixedSize(400, 400);
     setMouseTracking(true);
+    setFocusPolicy(Qt::StrongFocus);
+    m_clock.setInterval(1000);
+    connect(&m_clock, &QTimer::timeout, this, [this]() {
+        ++m_seconds;
+        emit secondsChanged(m_seconds);
+    });
     newGame(4, 4);
 }
 
@@ -23,11 +30,17 @@ void PuzzleWidget::newGame(int rows, int cols)
     m_cols = cols;
     m_moves = 0;
     m_won = false;
-
+    m_seconds = 0;
+    m_started = false;
+    m_clock.stop();
     initBoard();
-    shuffleBoard();
-
+    // Barajar con movimientos validos garantiza que tiene solucion; se repite
+    // si por azar quedara ya resuelto.
+    do {
+        shuffleBoard();
+    } while (checkSolved());
     emit moveCountChanged(m_moves);
+    emit secondsChanged(m_seconds);
     update();
 }
 
@@ -213,51 +226,72 @@ void PuzzleWidget::paintEvent(QPaintEvent * /*event*/)
     }
 }
 
+bool PuzzleWidget::checkSolved() const
+{
+    int expected = 1;
+    for (int r = 0; r < m_rows; ++r) {
+        for (int c = 0; c < m_cols; ++c) {
+            const bool last = (r == m_rows - 1 && c == m_cols - 1);
+            if (m_board[r][c] != (last ? 0 : expected))
+                return false;
+            ++expected;
+        }
+    }
+    return true;
+}
+
+// Desliza hacia el hueco todas las fichas entre (row,col) y el hueco, si
+// estan en la misma fila o columna (antes solo se movia una ficha contigua).
+bool PuzzleWidget::slideFrom(int row, int col)
+{
+    if (m_won || row < 0 || row >= m_rows || col < 0 || col >= m_cols)
+        return false;
+    const int er = m_emptyPos.x(), ec = m_emptyPos.y();
+    if ((row != er && col != ec) || (row == er && col == ec))
+        return false;
+
+    const int dr = (row > er) - (row < er);
+    const int dc = (col > ec) - (col < ec);
+    while (m_emptyPos != QPoint(row, col)) {
+        const int nr = m_emptyPos.x() + dr, nc = m_emptyPos.y() + dc;
+        m_board[m_emptyPos.x()][m_emptyPos.y()] = m_board[nr][nc];
+        m_board[nr][nc] = 0;
+        m_emptyPos = QPoint(nr, nc);
+        ++m_moves;
+    }
+
+    if (!m_started) {
+        m_started = true;
+        m_clock.start();
+    }
+    emit moveCountChanged(m_moves);
+    if (checkSolved()) {
+        m_won = true;
+        m_clock.stop();
+        emit puzzleSolved();
+    }
+    update();
+    return true;
+}
+
 void PuzzleWidget::mousePressEvent(QMouseEvent *event)
 {
-    if (m_won)
-        return;
+    setFocus();
+    const int tileW = width() / m_cols;
+    const int tileH = height() / m_rows;
+    slideFrom(int(event->position().y()) / tileH, int(event->position().x()) / tileW);
+}
 
-    int tileW = width() / m_cols;
-    int tileH = height() / m_rows;
-
-    int col = event->position().x() / tileW;
-    int row = event->position().y() / tileH;
-
-    if (row < 0 || row >= m_rows || col < 0 || col >= m_cols)
-        return;
-
-    QPoint clicked(row, col);
-
-    if (isAdjacent(clicked, m_emptyPos)) {
-        // Swap
-        m_board[m_emptyPos.x()][m_emptyPos.y()] = m_board[row][col];
-        m_board[row][col] = 0;
-        m_emptyPos = clicked;
-
-        ++m_moves;
-        emit moveCountChanged(m_moves);
-
-        // Check win: all tiles in order
-        m_won = true;
-        int expected = 1;
-        for (int r = 0; r < m_rows; ++r) {
-            for (int c = 0; c < m_cols; ++c) {
-                if (r == m_rows - 1 && c == m_cols - 1) {
-                    if (m_board[r][c] != 0)
-                        m_won = false;
-                } else {
-                    if (m_board[r][c] != expected)
-                        m_won = false;
-                    ++expected;
-                }
-            }
-        }
-
-        if (m_won)
-            emit puzzleSolved();
-
-        update();
+// Las flechas mueven la ficha que esta junto al hueco en esa direccion
+void PuzzleWidget::keyPressEvent(QKeyEvent *event)
+{
+    const int er = m_emptyPos.x(), ec = m_emptyPos.y();
+    switch (event->key()) {
+    case Qt::Key_Left:  case Qt::Key_A: slideFrom(er, ec + 1); break;
+    case Qt::Key_Right: case Qt::Key_D: slideFrom(er, ec - 1); break;
+    case Qt::Key_Up:    case Qt::Key_W: slideFrom(er + 1, ec); break;
+    case Qt::Key_Down:  case Qt::Key_S: slideFrom(er - 1, ec); break;
+    default: QWidget::keyPressEvent(event);
     }
 }
 

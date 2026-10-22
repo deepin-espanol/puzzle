@@ -17,16 +17,17 @@ public:
 
 private slots:
     void newGame();
-    void onMoveCountChanged(int moves);
     void onPuzzleSolved();
 
 private:
     void setupUI();
     void setupMenu();
+    void updateStatus();
+    int bestMoves() const;
 
     PuzzleWidget *m_puzzle;
     DLabel *m_movesLabel;
     int m_gridSize;
 };
 
-#endif
+#endif // MAINWINDOW_H
