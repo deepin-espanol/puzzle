@@ -1,62 +1,50 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE TS>
 <TS version="2.1" language="nl">
 <context>
     <name>MainWindow</name>
     <message>
         <source>Puzzle 15</source>
-        <translation type="unfinished">Puzzle 15</translation>
-    </message>
-    <message>
-        <source>Juego</source>
-        <translation type="unfinished">Game</translation>
+        <translation>Schuifpuzzel 15</translation>
     </message>
     <message>
         <source>Nuevo juego</source>
-        <translation type="unfinished">New game</translation>
-    </message>
-    <message>
-        <source>4x4</source>
-        <translation type="unfinished">4x4</translation>
-    </message>
-    <message>
-        <source>3x3</source>
-        <translation type="unfinished">3x3</translation>
+        <translation>Nieuw spel</translation>
     </message>
     <message>
         <source>Salir</source>
-        <translation type="unfinished">Quit</translation>
-    </message>
-    <message>
-        <source>Movimientos: 0</source>
-        <translation type="unfinished">Moves: 0</translation>
-    </message>
-    <message>
-        <source>Movimientos: %1</source>
-        <translation type="unfinished">Moves: %1</translation>
+        <translation>Afsluiten</translation>
     </message>
     <message>
         <source>Felicidades</source>
-        <translation type="unfinished">Congratulations</translation>
+        <translation>Gefeliciteerd</translation>
     </message>
     <message>
-        <source>Completaste el puzzle en %1 movimientos!</source>
-        <translation type="unfinished">You completed the puzzle in %1 moves!</translation>
+        <source>%1x%1</source>
+        <translation>%1x%1</translation>
+    </message>
+    <message>
+        <source>Movimientos: %1  |  Tiempo: %2</source>
+        <translation>Zetten: %1  |  Tijd: %2</translation>
+    </message>
+    <message>
+        <source>  |  Récord: %1</source>
+        <translation>  |  Record: %1</translation>
+    </message>
+    <message>
+        <source>Completaste el puzzle en %1 movimientos y %2:%3.</source>
+        <translation>Je hebt de puzzel opgelost in %1 zetten en %2:%3.</translation>
+    </message>
+    <message>
+        <source>¡Nuevo récord para %1x%1!</source>
+        <translation>Nieuw record voor %1x%1!</translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
-        <source>puzzle</source>
-        <translation type="unfinished">puzzle</translation>
-    </message>
-    <message>
         <source>Puzzle 15</source>
-        <translation type="unfinished">Puzzle 15</translation>
-    </message>
-    <message>
-        <source>deepines</source>
-        <translation type="unfinished">deepines</translation>
+        <translation>Schuifpuzzel 15</translation>
     </message>
 </context>
 </TS>

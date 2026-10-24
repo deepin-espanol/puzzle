@@ -1,62 +1,50 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE TS>
 <TS version="2.1" language="hi">
 <context>
     <name>MainWindow</name>
     <message>
         <source>Puzzle 15</source>
-        <translation type="unfinished">Puzzle 15</translation>
-    </message>
-    <message>
-        <source>Juego</source>
-        <translation type="unfinished">Game</translation>
+        <translation>पहेली 15</translation>
     </message>
     <message>
         <source>Nuevo juego</source>
-        <translation type="unfinished">New game</translation>
-    </message>
-    <message>
-        <source>4x4</source>
-        <translation type="unfinished">4x4</translation>
-    </message>
-    <message>
-        <source>3x3</source>
-        <translation type="unfinished">3x3</translation>
+        <translation>नया खेल</translation>
     </message>
     <message>
         <source>Salir</source>
-        <translation type="unfinished">Quit</translation>
-    </message>
-    <message>
-        <source>Movimientos: 0</source>
-        <translation type="unfinished">Moves: 0</translation>
-    </message>
-    <message>
-        <source>Movimientos: %1</source>
-        <translation type="unfinished">Moves: %1</translation>
+        <translation>बाहर निकलें</translation>
     </message>
     <message>
         <source>Felicidades</source>
-        <translation type="unfinished">Congratulations</translation>
+        <translation>बधाई हो</translation>
     </message>
     <message>
-        <source>Completaste el puzzle en %1 movimientos!</source>
-        <translation type="unfinished">You completed the puzzle in %1 moves!</translation>
+        <source>%1x%1</source>
+        <translation>%1x%1</translation>
+    </message>
+    <message>
+        <source>Movimientos: %1  |  Tiempo: %2</source>
+        <translation>चालें: %1  |  समय: %2</translation>
+    </message>
+    <message>
+        <source>  |  Récord: %1</source>
+        <translation>  |  सर्वश्रेष्ठ: %1</translation>
+    </message>
+    <message>
+        <source>Completaste el puzzle en %1 movimientos y %2:%3.</source>
+        <translation>आपने पहेली %1 चालों और %2:%3 में पूरी की।</translation>
+    </message>
+    <message>
+        <source>¡Nuevo récord para %1x%1!</source>
+        <translation>%1x%1 के लिए नया रिकॉर्ड!</translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
-        <source>puzzle</source>
-        <translation type="unfinished">puzzle</translation>
-    </message>
-    <message>
         <source>Puzzle 15</source>
-        <translation type="unfinished">Puzzle 15</translation>
-    </message>
-    <message>
-        <source>deepines</source>
-        <translation type="unfinished">deepines</translation>
+        <translation>पहेली 15</translation>
     </message>
 </context>
 </TS>

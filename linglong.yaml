@@ -3,7 +3,7 @@ version: "1"
 package:
   id: org.deepinenespanol.puzzle
   name: "Puzzle 15"
-  version: 0.1.0.0
+  version: 0.2.0.0
   kind: app
   description: |
     Sliding puzzle (15-Puzzle) game for Deepin desktop

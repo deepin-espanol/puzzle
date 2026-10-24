@@ -1,62 +1,50 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE TS>
 <TS version="2.1" language="fr">
 <context>
     <name>MainWindow</name>
     <message>
         <source>Puzzle 15</source>
-        <translation type="unfinished">Puzzle 15</translation>
-    </message>
-    <message>
-        <source>Juego</source>
-        <translation>Jeu</translation>
+        <translation>Taquin</translation>
     </message>
     <message>
         <source>Nuevo juego</source>
         <translation>Nouveau jeu</translation>
     </message>
     <message>
-        <source>4x4</source>
-        <translation type="unfinished">4x4</translation>
-    </message>
-    <message>
-        <source>3x3</source>
-        <translation type="unfinished">3x3</translation>
-    </message>
-    <message>
         <source>Salir</source>
         <translation>Quitter</translation>
-    </message>
-    <message>
-        <source>Movimientos: 0</source>
-        <translation>Mouvements: 0</translation>
-    </message>
-    <message>
-        <source>Movimientos: %1</source>
-        <translation>Mouvements: %1</translation>
     </message>
     <message>
         <source>Felicidades</source>
         <translation>Félicitations</translation>
     </message>
     <message>
-        <source>Completaste el puzzle en %1 movimientos!</source>
-        <translation>Vous avez terminé le puzzle en %1 mouvements!</translation>
+        <source>%1x%1</source>
+        <translation>%1x%1</translation>
+    </message>
+    <message>
+        <source>Movimientos: %1  |  Tiempo: %2</source>
+        <translation>Coups : %1  |  Temps : %2</translation>
+    </message>
+    <message>
+        <source>  |  Récord: %1</source>
+        <translation>  |  Record : %1</translation>
+    </message>
+    <message>
+        <source>Completaste el puzzle en %1 movimientos y %2:%3.</source>
+        <translation>Vous avez résolu le taquin en %1 coups et %2:%3.</translation>
+    </message>
+    <message>
+        <source>¡Nuevo récord para %1x%1!</source>
+        <translation>Nouveau record pour %1x%1 !</translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
-        <source>puzzle</source>
-        <translation type="unfinished">puzzle</translation>
-    </message>
-    <message>
         <source>Puzzle 15</source>
-        <translation type="unfinished">Puzzle 15</translation>
-    </message>
-    <message>
-        <source>deepines</source>
-        <translation type="unfinished">deepines</translation>
+        <translation>Taquin</translation>
     </message>
 </context>
 </TS>
