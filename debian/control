@@ -1,7 +1,7 @@
 Source: puzzle
 Section: games
 Priority: optional
-Maintainer: Deepin en Español <developers@deepinenespanol.org>
+Maintainer: Alvaro Samudio <alvarosamudio@protonmail.com>
 Build-Depends: debhelper-compat (= 13),
                cmake,
                qt6-base-dev,
@@ -14,7 +14,7 @@ Rules-Requires-Root: no
 
 Package: puzzle
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, hicolor-icon-theme
 Description: Sliding puzzle (15-Puzzle) game for Deepin desktop
  A classic 15-Puzzle sliding tile game built with Qt6 and DTK6,
  featuring smooth tile animations, multiple grid sizes (3x3, 4x4),
